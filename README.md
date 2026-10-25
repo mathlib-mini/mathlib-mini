@@ -4,7 +4,6 @@
 [![Repo](https://img.shields.io/badge/repo-GitHub-black?logo=github)](https://github.com/mathlib-mini/mathlib-mini)
 [![Tooling](https://img.shields.io/badge/python-3.15%2B-blue?logo=python)](./pyproject.toml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-yellow.svg)](./LICENSE)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21694487.svg)](https://doi.org/10.5281/zenodo.21694487)
 
 [![CI-Lean](https://github.com/mathlib-mini/mathlib-mini/actions/workflows/ci-lean.yml/badge.svg?branch=main)](https://github.com/mathlib-mini/mathlib-mini/actions/workflows/ci-lean.yml)
 [![CI](https://github.com/mathlib-mini/mathlib-mini/actions/workflows/ci-python-zensical.yml/badge.svg?branch=main)](https://github.com/mathlib-mini/mathlib-mini/actions/workflows/ci-python-zensical.yml)
