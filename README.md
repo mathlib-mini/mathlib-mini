@@ -11,8 +11,9 @@
 [![Links](https://github.com/mathlib-mini/mathlib-mini/actions/workflows/links.yml/badge.svg?branch=main)](https://github.com/mathlib-mini/mathlib-mini/actions/workflows/links.yml)
 [![Dependabot](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg)](https://github.com/mathlib-mini/mathlib-mini/security)
 
-> A small, Mathlib-inspired foundation for Lean 4 that depends only on
-> Lean core. Unofficial.
+> A small, unofficial, Mathlib-inspired foundation for Lean 4.
+> Imports only Lean core;
+> agreement with Mathlib is checked in a separate package.
 
 ## Import
 
