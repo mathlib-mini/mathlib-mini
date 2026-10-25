@@ -1,0 +1,39 @@
+# ============================================================
+# lakefile.toml (compatibility package)
+# ============================================================
+# Checks that MathlibMini agrees with Mathlib.
+# This package depends on Mathlib. The MathlibMini package does not.
+#
+# Run from this folder with:
+# lake update
+# lake build --wfail
+
+name = "mathlib-mini-compatibility"
+version = "0.1.0"
+license = "Apache-2.0"
+
+defaultTargets = ["MathlibMiniCompat"]
+testDriver = "MathlibMiniCompat"
+
+# ============================================================
+# === DEPENDENCIES ===
+# ============================================================
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.34.0"
+
+# The MathlibMini package in the parent folder.
+[[require]]
+name = "mathlib-mini"
+path = ".."
+
+# ============================================================
+# === COMPATIBILITY LIBRARY ===
+# ============================================================
+# Building this library is the test. If Mathlib changes in a way
+# that breaks a bridge theorem, the build fails.
+
+[[lean_lib]]
+name = "MathlibMiniCompat"

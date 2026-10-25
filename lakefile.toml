@@ -1,0 +1,74 @@
+# ============================================================
+# lakefile.toml
+# ============================================================
+# Declares the public Lean package identity, import surface,
+# build targets, dependencies, and verification executables.
+
+# Run with:
+# lake build
+# lake test
+# lake lint
+
+# ============================================================
+# === PROJECT IDENTITY ===
+# ============================================================
+
+name = "mathlib-mini"
+version = "0.1.0"
+license = "Apache-2.0"
+
+# ============================================================
+# === BUILD SURFACE ===
+# ============================================================
+# defaultTargets must include the public Lean library root.
+
+defaultTargets = ["MathlibMini"]
+testDriver = "MathlibMiniTest"
+lintDriver = "MathlibMiniLint"
+
+# ============================================================
+# === DEPENDENCIES ===
+# ============================================================
+
+[[require]]
+name = "batteries"
+scope = "leanprover-community"
+rev = "v4.34.0"
+
+# ============================================================
+# === PUBLIC LIBRARY ===
+# ============================================================
+# The library downstream packages import. The root module MathlibMini
+# and its submodules are all part of this one library.
+#
+# Glob forms:
+#   "A.B"    only module A.B
+#   "A.B.*"  A.B and all its submodules
+#   "A.B.+"  all submodules of A.B, but not A.B itself
+
+
+[[lean_lib]]
+name = "MathlibMini"
+roots = ["MathlibMini"]
+globs = ["MathlibMini", "MathlibMini.Set.*"]
+
+
+# ============================================================
+# === TEST LIBRARY ===
+# ============================================================
+# Internal verification; not part of downstream public import surface.
+
+[[lean_lib]]
+name = "MathlibMiniTest"
+roots = ["MathlibMiniTest.Set"]
+globs = ["MathlibMiniTest", "MathlibMiniTest.Set.*"]
+
+
+# ============================================================
+# === LINT DRIVER ===
+# ============================================================
+
+[[lean_exe]]
+name = "MathlibMiniLint"
+root = "MathlibMiniLint"
+leanOptions = { Elab.inServer = true }

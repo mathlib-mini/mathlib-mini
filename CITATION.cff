@@ -1,0 +1,40 @@
+# ============================================================
+# CITATION.cff (How to cite this project)
+# ============================================================
+# REQ: Professional open projects SHOULD include this file.
+# USAGE: See https://citation-file-format.github.io/ for details.
+# check with:
+# uvx cffconvert --validate
+
+cff-version: "1.2.0"
+message: "If you use this work, please cite it using the metadata in CITATION.cff."
+type: software
+
+title: "Mathlib Mini"
+version: "0.1.0"
+date-released: "2026-10-24"
+
+authors:
+  - family-names: Case
+    given-names: Denise M.
+    orcid: "https://orcid.org/0000-0001-6165-7389"
+    affiliation: "Northwest Missouri State University, School of Computer Science and Information Systems, Maryville, MO, USA"
+
+repository-code: "https://github.com/mathlib-mini/mathlib-mini"
+url: "https://github.com/mathlib-mini/mathlib-mini"
+
+license: "Apache-2.0"
+
+abstract: >
+  Mathlib Mini is a lightweight mathematical foundation for Lean 4.
+  It provides minimal foundational definitions and proved properties
+  without requiring Mathlib as a core dependency. The project aims
+  to maintain mathematical compatibility with Mathlib through
+  separately verified compatibility interfaces.
+
+keywords:
+  - mathlib-mini
+  - lean4
+  - mathematical-foundations
+  - formal-verification
+  - mathlib-compatibility
