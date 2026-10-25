@@ -13,6 +13,21 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ---
 
+## [0.1.1] - 2026-10-25
+
+### Changed
+
+- Moved Batteries-based linting into a separate `lint/` Lake package.
+- Removed Batteries as a dependency of the main Mathlib Mini package.
+- Updated release validation to run linting through the separate package.
+- Preserved the public mathematical definitions, theorems, and import surface.
+
+### Fixed
+
+- The main Mathlib Mini package now depends only on Lean core.
+
+---
+
 ## [0.1.0] - 2026-10-24
 
 ### Added
@@ -65,7 +80,7 @@ Follow these steps exactly when creating a new release.
 1.2. lakefile.toml: update version
 1.3. lakefile.toml: update version in `compatibility/`
 1.4. lakefile.toml: update version in `lint/`
-1.3. CHANGELOG.md: add section, move unreleased entries, update links
+1.3. CHANGELOG.md: add section, move unreleased entries, update links, release command
 1.4. pyproject.toml: update version (near top of the file)
 
 ### Task 2. Set up and Validate
@@ -118,7 +133,7 @@ git push origin vX.Y.Z
 Create GitHub Release after pushing tag, for example with a command like this:
 
 ```shell
-gh release create v0.1.0 --verify-tag --title "0.1.0" --generate-notes
+gh release create v0.1.1 --verify-tag --title "0.1.1" --generate-notes
 ```
 
 ## Only As Needed (delete a tag)
