@@ -14,6 +14,7 @@
 > A small, unofficial, Mathlib-inspired foundation for Lean 4.
 > The library imports only Lean core;
 > Batteries is used only by the lint driver.
+> Agreement with Mathlib is checked in a separate package.
 
 ## Import
 
