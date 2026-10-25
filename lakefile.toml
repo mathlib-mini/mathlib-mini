@@ -14,7 +14,7 @@
 # ============================================================
 
 name = "mathlib-mini"
-version = "0.1.0"
+version = "0.1.1" # CUSTOM: Sets the latest mini release
 license = "Apache-2.0"
 
 # ============================================================
@@ -24,16 +24,12 @@ license = "Apache-2.0"
 
 defaultTargets = ["MathlibMini"]
 testDriver = "MathlibMiniTest"
-lintDriver = "MathlibMiniLint"
 
 # ============================================================
 # === DEPENDENCIES ===
 # ============================================================
 
-[[require]]
-name = "batteries"
-scope = "leanprover-community"
-rev = "v4.34.0"
+# none
 
 # ============================================================
 # === PUBLIC LIBRARY ===
@@ -62,13 +58,3 @@ globs = ["MathlibMini", "MathlibMini.Set.*"]
 name = "MathlibMiniTest"
 roots = ["MathlibMiniTest.Set"]
 globs = ["MathlibMiniTest", "MathlibMiniTest.Set.*"]
-
-
-# ============================================================
-# === LINT DRIVER ===
-# ============================================================
-
-[[lean_exe]]
-name = "MathlibMiniLint"
-root = "MathlibMiniLint"
-leanOptions = { Elab.inServer = true }

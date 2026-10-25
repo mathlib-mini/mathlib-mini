@@ -63,6 +63,8 @@ Follow these steps exactly when creating a new release.
 
 1.1. CITATION.cff: update version and date-released
 1.2. lakefile.toml: update version
+1.3. lakefile.toml: update version in `compatibility/`
+1.4. lakefile.toml: update version in `lint/`
 1.3. CHANGELOG.md: add section, move unreleased entries, update links
 1.4. pyproject.toml: update version (near top of the file)
 

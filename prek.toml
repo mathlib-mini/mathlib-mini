@@ -96,7 +96,7 @@ exclude = '''(?x)^(
   )'''
 
 # CUSTOM: Set fail_fast to true to stop at first failure.
-fail_fast = false
+fail_fast = true
 # WHY: Run all hooks so all issues are visible at once.
 
 # ============================================================

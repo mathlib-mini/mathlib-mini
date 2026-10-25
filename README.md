@@ -11,10 +11,11 @@
 [![Links](https://github.com/mathlib-mini/mathlib-mini/actions/workflows/links.yml/badge.svg?branch=main)](https://github.com/mathlib-mini/mathlib-mini/actions/workflows/links.yml)
 [![Dependabot](https://img.shields.io/badge/Dependabot-enabled-brightgreen.svg)](https://github.com/mathlib-mini/mathlib-mini/security)
 
-> A small, unofficial, Mathlib-inspired foundation for Lean 4.
-> The library imports only Lean core;
-> Batteries is used only by the lint driver.
-> Agreement with Mathlib is checked in a separate package.
+> A small, unofficial, Mathlib-inspired foundation
+> for Lean 4 that depends only on Lean core.
+> Agreement with Mathlib is verified separately.
+
+This version is designed to support the limited number of mathlib primitives needed for a specific research program.
 
 ## Import
 
@@ -31,6 +32,7 @@ Maintain:
 - `lakefile.toml`
 - `lean-toolchain`
 - `compatibility/` - separate package that checks agreement with Mathlib
+- `lint/` - separate package that lints MathlibMini
 
 ### Clone and Open Project in VS Code
 

@@ -1,0 +1,45 @@
+# ============================================================
+# lakefile.toml (compatibility package)
+# ============================================================
+# Lints MathlibMini.
+# This package depends on Batteries. The MathlibMini package does not.
+#
+# Run from this folder with:
+# lake build
+# lake lint
+
+name = "mathlib-mini-lint"
+version = "0.1.1" # CUSTOM: Updated to match the latest mini release
+license = "Apache-2.0"
+
+# ============================================================
+# === BUILD SURFACE ===
+# ============================================================
+# defaultTargets must include the public Lean library root.
+
+defaultTargets = ["MathlibMiniLint"]
+lintDriver = "MathlibMiniLint"
+
+# ============================================================
+# === DEPENDENCIES ===
+# ============================================================
+
+[[require]]
+name = "batteries"
+scope = "leanprover-community"
+rev = "v4.34.0"
+
+
+# The MathlibMini package in the parent folder.
+[[require]]
+name = "mathlib-mini"
+path = ".."
+
+# ============================================================
+# === LINT DRIVER ===
+# ============================================================
+
+[[lean_exe]]
+name = "MathlibMiniLint"
+root = "MathlibMiniLint"
+leanOptions = { Elab.inServer = true }

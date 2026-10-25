@@ -97,15 +97,13 @@ Invoke-Step "B2) Run MathlibMini tests" "lake test" {
     lake test
 }
 
-Invoke-Step "B3) Run MathlibMini linter" "lake lint" {
-    lake lint
-}
-
 # ============================================================
-# === C) Compatibility with Mathlib ===
+# === C) CHECK Compatibility with Mathlib and Lint===
 # ============================================================
 # The compatibility package is a separate Lake package in compatibility/.
 # It requires Mathlib and MathlibMini, and builds the bridge theorems.
+# The lint package is a separate Lake package in lint/.
+# It checks the code style and formatting of MathlibMini and compatibility.
 
 Invoke-Step `
     "C1) Update compatibility dependencies" `
@@ -137,6 +135,19 @@ Invoke-Step `
     Push-Location (Join-Path $PSScriptRoot "compatibility")
     try {
         lake test
+    }
+    finally {
+        Pop-Location
+    }
+}
+
+Invoke-Step `
+    "C4) Run MathlibMini linter" `
+    "cd lint; lake lint" {
+    Push-Location (Join-Path $PSScriptRoot "lint")
+    try {
+        lake update
+        lake lint
     }
     finally {
         Pop-Location
