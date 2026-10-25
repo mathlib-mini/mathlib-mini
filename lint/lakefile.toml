@@ -1,10 +1,10 @@
 # ============================================================
-# lakefile.toml (compatibility package)
+# lakefile.toml (lint package)
 # ============================================================
-# Lints MathlibMini.
-# This package depends on Batteries. The MathlibMini package does not.
+# Lints. This package depends on Batteries.
 #
 # Run from this folder with:
+# lake update
 # lake build
 # lake lint
 
@@ -29,8 +29,6 @@ name = "batteries"
 scope = "leanprover-community"
 rev = "v4.34.0"
 
-
-# The MathlibMini package in the parent folder.
 [[require]]
 name = "mathlib-mini"
 path = ".."
