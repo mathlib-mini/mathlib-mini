@@ -14,7 +14,7 @@
 # ============================================================
 
 name = "mathlib-mini"
-version = "0.1.1" # CUSTOM: Sets the latest mini release
+version = "0.2.0" # CUSTOM: Sets the latest mini release
 license = "Apache-2.0"
 
 # ============================================================
