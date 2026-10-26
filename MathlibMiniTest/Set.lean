@@ -6,6 +6,7 @@ Authors: Denise M. Case
 module
 
 import MathlibMiniTest.Set.Basic
+import MathlibMiniTest.Set.Builder
 import MathlibMiniTest.Set.Operations
 
 /-!

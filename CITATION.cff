@@ -11,7 +11,7 @@ message: "If you use this work, please cite it using the metadata in CITATION.cf
 type: software
 
 title: "Mathlib Mini"
-version: "0.1.2" # CUSTOM: Updated to match the latest mini release
+version: "0.2.0" # CUSTOM: Updated to match the latest mini release
 date-released: "2026-10-26" # CUSTOM: Updated to match the latest mini release date
 
 authors:

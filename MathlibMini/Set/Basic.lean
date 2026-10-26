@@ -14,7 +14,7 @@ A set of elements of `α` is a function `α → Prop`. No finiteness,
 enumeration, or decidable membership is assumed.
 
 This module provides the type, construction from a predicate,
-membership, the subset relation, and extensionality.
+membership, the subset and strict subset relations, and extensionality.
 It depends only on Lean core.
 
 Inspired by Mathlib's `Set`. This is an independent, unofficial library.
@@ -50,6 +50,9 @@ instance : Membership α (Set α) :=
 instance : HasSubset (Set α) :=
   ⟨fun left right => ∀ ⦃element⦄, element ∈ left → element ∈ right⟩
 
+instance : HasSSubset (Set α) :=
+  ⟨fun left right => left ⊆ right ∧ ¬ right ⊆ left⟩
+
 /--
 An element is a member of `ofPredicate predicate` exactly when it
 satisfies `predicate`.
@@ -67,6 +70,13 @@ theorem subset_def {left right : Set α} :
   Iff.rfl
 
 /--
+`left ⊂ right` unfolds to: `left ⊆ right` and not `right ⊆ left`.
+-/
+theorem ssubset_def {left right : Set α} :
+    left ⊂ right ↔ left ⊆ right ∧ ¬ right ⊆ left :=
+  Iff.rfl
+
+/--
 Two sets are equal when they have the same members.
 -/
 @[ext]
@@ -78,6 +88,7 @@ theorem ext {left right : Set α}
 /--
 Every set is a subset of itself.
 -/
+@[refl]
 theorem subset_refl (set : Set α) : set ⊆ set :=
   fun _ h => h
 

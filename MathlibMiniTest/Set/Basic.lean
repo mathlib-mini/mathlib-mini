@@ -60,4 +60,30 @@ example : Set.ofPredicate (fun _ : Nat => True) ≠ Set.ofPredicate (fun _ : Nat
     simp
   simp at this
 
+/-- `subset_refl` is tagged `@[refl]`, so `rfl` closes `a ⊆ a`. -/
+example (a : Set α) : a ⊆ a := by
+  rfl
+
+/-- `rw` closes a goal of the form `a ⊆ a` by `rfl` after rewriting. -/
+example (a b : Set α) (h : a = b) : a ⊆ b := by
+  rw [h]
+
+/-- `ssubset_def` exposes the unfolded statement. -/
+example (a b : Set α) : a ⊂ b ↔ a ⊆ b ∧ ¬ b ⊆ a :=
+  Set.ssubset_def
+
+/-- A strict subset is a subset. -/
+example (a b : Set α) (h : a ⊂ b) : a ⊆ b :=
+  h.1
+
+/-- `constructor` splits a strict subset into its two parts. -/
+example (a b : Set α) (h₁ : a ⊆ b) (h₂ : ¬ b ⊆ a) : a ⊂ b := by
+  constructor
+  · exact h₁
+  · exact h₂
+
+/-- No set is a strict subset of itself. -/
+example (a : Set α) : ¬ a ⊂ a :=
+  fun h => h.2 (Set.subset_refl a)
+
 end MathlibMiniTest.Set.Basic

@@ -8,6 +8,7 @@ module
 public meta import Batteries.Tactic.Lint
 import all MathlibMini.Set.Basic
 import all MathlibMini.Set.Operations
+import all MathlibMini.Set.Builder
 
 /-!
 # MathlibMini Lint Driver

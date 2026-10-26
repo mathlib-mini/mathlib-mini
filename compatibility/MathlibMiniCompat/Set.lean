@@ -34,7 +34,7 @@ variable {α : Type u}
 Convert a `MathlibMini.Set` to a Mathlib `Set` with the same members.
 -/
 def toMathlib (set : MathlibMini.Set α) : _root_.Set α :=
-  {element | element ∈ set}
+  (show _root_.Set α from fun element : α => element ∈ set)
 
 /--
 Convert a Mathlib `Set` to a `MathlibMini.Set` with the same members.
@@ -91,6 +91,23 @@ Conversion preserves and reflects the subset relation.
 theorem toMathlib_subset_iff {left right : MathlibMini.Set α} :
     toMathlib left ⊆ toMathlib right ↔ left ⊆ right :=
   Iff.rfl
+
+/--
+Conversion preserves and reflects the strict subset relation.
+-/
+theorem toMathlib_ssubset_iff {left right : MathlibMini.Set α} :
+    toMathlib left ⊂ toMathlib right ↔ left ⊂ right :=
+  Iff.rfl
+
+/-! ### Set-builder -/
+
+/--
+A `MathlibMini` set built from a predicate converts to Mathlib's
+set-builder set.
+-/
+theorem toMathlib_ofPredicate (predicate : α → Prop) :
+    toMathlib (MathlibMini.Set.ofPredicate predicate) = _root_.Set.ofPred predicate :=
+  Set.ext fun _ => Iff.rfl
 
 /-! ### Operations -/
 

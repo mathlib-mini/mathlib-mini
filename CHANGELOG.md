@@ -13,10 +13,17 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ---
 
-## [0.1.2] - 2026-10-26
+## [0.2.0] - 2026-10-26
+
+### Added
+
+- Set-builder notation `{ x | p x }` and `{ x : α | p x }`, printed back in
+  the same form, with `Set.mem_setOf_eq` (`MathlibMini.Set.Builder`)
+- Strict subset `⊂` with `Set.ssubset_def` (`MathlibMini.Set.Basic`)
 
 ### Changed
 
+- `Set.subset_refl` is tagged `@[refl]`, so `rfl` closes `s ⊆ s`
 - Updated license notice.
 - Added headers to Lean files.
 
@@ -142,7 +149,7 @@ git push origin vX.Y.Z
 Create GitHub Release after pushing tag, for example with a command like this:
 
 ```shell
-gh release create v0.1.2 --verify-tag --title "0.1.2" --generate-notes
+gh release create v0.2.0 --verify-tag --title "0.2.0" --generate-notes
 ```
 
 ## Only As Needed (delete a tag)
@@ -154,8 +161,8 @@ git push origin :refs/tags/vX.Z.Y
 
 ## Links
 
-[Unreleased]: https://github.com/mathlib-mini/mathlib-mini/compare/v0.1.2...HEAD
-[0.1.2]: https://github.com/mathlib-mini/mathlib-mini/releases/tag/v0.1.2
+[Unreleased]: https://github.com/mathlib-mini/mathlib-mini/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/mathlib-mini/mathlib-mini/releases/tag/v0.2.0
 [0.1.1]: https://github.com/mathlib-mini/mathlib-mini/releases/tag/v0.1.1
 [0.1.0]: https://github.com/mathlib-mini/mathlib-mini/releases/tag/v0.1.0
 
